@@ -9,11 +9,12 @@ import {
 import { createKnexProviders } from './knex.providers';
 
 import { connectionFactory } from './knex-connection.provider';
+import { KnexRepository } from './knex-repository.service';
 
 @Global()
 @Module({
-  providers: [KnexService, connectionFactory],
-  exports: [KnexService, connectionFactory],
+  providers: [KnexService, KnexRepository, connectionFactory],
+  exports: [KnexService, KnexRepository, connectionFactory],
 })
 export class KnexModule {
   /**
